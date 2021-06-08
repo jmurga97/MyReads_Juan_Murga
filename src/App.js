@@ -123,11 +123,11 @@ class BooksApp extends React.Component {
             </div>
           </div>
           <div className="open-search">
-            <Link to="/addbook">Add a book</Link>
+            <Link to="/search">Add a book</Link>
           </div>
         </div>
         )}/>
-        <Route path="/addbook" render={() => (
+        <Route path="/search" render={() => (
           <AddBook onMoveBook={this.moveBook} onFindBook={this.findBook}/>)}/>
         <Route path={"/"+this.state.bookUnit.id} render={() => (
           <BookDescription book={this.state.bookUnit}/> )}/>

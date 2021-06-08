@@ -1,17 +1,20 @@
-import { string } from 'prop-types'
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
 import Book from './Book'
+
+//To make work the search requirements, we have to implemente debounce
+import debounce from 'lodash.debounce'
 
 class AddBook extends Component{
     constructor(props){
         super(props)
         this.handleSearch = this.handleSearch.bind(this)
         this.makeQuery = this.makeQuery.bind(this)
+        this.clearQuery = this.clearQuery.bind(this)
         this.state = {
             input: ' ',
-            results: new Array(),
+            results: [],
             myBooks: []
         }
 
@@ -22,18 +25,33 @@ class AddBook extends Component{
         this.setState(() => ({
             input: query
         }))
-        this.makeQuery()
+        console.log(query)
+        const deb = debounce(() => this.makeQuery(query),1000)
+        deb()
     }
 
-    makeQuery = () => {
-        if(this.state.input){
-            BooksAPI.search(this.state.input)
+    makeQuery = (query) => {
+
+        if(query !== ''){
+            console.log('MAKING QUERY')
+            console.log(query)
+            BooksAPI.search(query)
             .then(response => {
+                console.log(response)
                 if(!response.error){
                     this.setState({results: response})
+                }else{
+                    this.clearQuery()
                 }
             }).then(() => this.findMyBooksOnSearch(this.state.results))
+        }else{
+            console.log('VACIOOO')
+            this.clearQuery()
         }
+    }
+
+    clearQuery = () => {
+        this.setState({results:[]})
     }
 
     findMyBooksOnSearch = (results) =>{

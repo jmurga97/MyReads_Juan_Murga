@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "lodash.debounce": "^4.0.8",
     "materialize-css": "^1.0.0-rc.2",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",

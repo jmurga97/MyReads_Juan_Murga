@@ -19,7 +19,7 @@ function Book(props) {
                     <div className="book-top">
                         <Link to={"/"+book.id}>
                         <div onClick={clicked} className="book-cover"
-                            style={{    width: 128,
+                            style={book.imageLinks && {    width: 128,
                                         height: 193,
                                         backgroundImage: `url(${book.imageLinks["smallThumbnail"]})` }}></div>
                         </Link>

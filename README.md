@@ -1,6 +1,15 @@
 # MyReads Project
 
-This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
+To run MyReads:
+    npm install
+    npm start
+
+This is MyReads App developed by Juan Murga. It does the basic functionality required for the Udacity project.
+    *Retrieve my books from BooksAPI and then arrange them on three shelves (Reading, To Read, Finished Books). These books are displayed following the fundamental concepts of React, reusing code making functional components and class components
+    * Every time the user refreshes the App, it can maintain her state updating the database on BooksAPI using the method update()
+    * Added basic routing for the search page and another route for view dynamically the description of books on a new page.
+    * The search page can show the books in the database by looking for the SEARCH_TERMS. These books can be moved to my shelves and automatically save their positions for future uses. You can click on these books to view their data on a new page too
+    *In AddBook.js we used debounce method to get the desirable behavior: When there is no input or we look for a invalid Term, the app should clean the view.
 
 Of course, you are free to start this project from scratch if you wish! Just be sure to use [Create React App](https://github.com/facebookincubator/create-react-app) to bootstrap the project.
 
@@ -62,7 +71,7 @@ update(book, shelf)
 ```
 
 * book: `<Object>` containing at minimum an `id` attribute
-* shelf: `<String>` contains one of ["wantToRead", "currentlyReading", "read"]  
+* shelf: `<String>` contains one of ["wantToRead", "currentlyReading", "read"]
 * Returns a Promise which resolves to a JSON object containing the response data of the POST request
 
 ### `search`
