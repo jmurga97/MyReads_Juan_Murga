@@ -22,7 +22,8 @@ This is MyReads App developed by Juan Murga. It does the basic functionality req
 └── src
     ├── App.css # Styles for your app. Feel free to customize this as you desire.
     ├── App.css # Styles for your app. Feel free to customize this as you desire.
-    ├── Book.js # This is the
+    ├── App.js # React component for the Home section of the App. It also have the Routes tag for the search page and Book Description page
+    ├── Book.js # React component for the view of the books. Thumbnail, shelf, title and authors
     ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
     ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
     ├── icons # Helpful images for your app. Use at your discretion.
@@ -31,7 +32,10 @@ This is MyReads App developed by Juan Murga. It does the basic functionality req
     │   └── arrow-drop-down.svg
     ├── index.css # Global styles. You probably won't need to change anything here.
     └── index.js # You should not need to modify this file. It is used for DOM rendering only.
-```
+    ├── BookDescription.js # React component for the view of the description of the Books. Thumbnail, description, page Count, categories, title  and authors
+    ├── Shelf.js # React component for arrange the books by shelf
+    ├── AddBook.js # React component for making the search of the books by terms
 
+```
 
 
