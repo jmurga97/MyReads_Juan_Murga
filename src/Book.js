@@ -35,6 +35,10 @@ function Book(props) {
                     </div>
                     <div className="book-title">{book.title}</div>
                     <div className="book-authors">{
+                        /*For a simple solution we cant implement the next line:
+                            {book.authors && book.authors.join(', ')}
+                        they would look like this:
+                            Rory Lewis, Yulia McCarthy, Stephen M. Moraco*/
                         book.authors ? book.authors.map(author => author + ' '): ''}</div>
                 </div>
             </li>

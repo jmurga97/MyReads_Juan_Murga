@@ -13,7 +13,6 @@ class AddBook extends Component{
         this.makeQuery = this.makeQuery.bind(this)
         this.clearQuery = this.clearQuery.bind(this)
         this.state = {
-            input: ' ',
             results: [],
             myBooks: []
         }
@@ -22,19 +21,14 @@ class AddBook extends Component{
 
     handleSearch = (query) => {
         query.replace(/\s+/g, '')
-        this.setState(() => ({
-            input: query
-        }))
-        console.log(query)
         const deb = debounce(() => this.makeQuery(query),1000)
         deb()
     }
 
-    makeQuery = (query) => {
+    makeQuery(query){
 
         if(query !== ''){
             console.log('MAKING QUERY')
-            console.log(query)
             BooksAPI.search(query)
             .then(response => {
                 console.log(response)
@@ -45,7 +39,7 @@ class AddBook extends Component{
                 }
             }).then(() => this.findMyBooksOnSearch(this.state.results))
         }else{
-            console.log('VACIOOO')
+            console.log('Empty Query')
             this.clearQuery()
         }
     }
@@ -69,14 +63,12 @@ class AddBook extends Component{
     componentDidMount(){
         BooksAPI.getAll()
             .then(booksFromAPI => {
-            console.log('Libros API',booksFromAPI)
             this.setState({myBooks: booksFromAPI})})
     }
 
     render(){
         const {results} = this.state
         const {onMoveBook,onFindBook} = this.props
-        console.log(results)
         return(
 
             <div className="search-books">
